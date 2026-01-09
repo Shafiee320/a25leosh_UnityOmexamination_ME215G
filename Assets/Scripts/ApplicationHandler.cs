@@ -9,8 +9,10 @@ public class ApplicationHandler : MonoBehaviour
 {
     public void ChangeScene()
     {
-        // Load the scene named "NewScene"
-        SceneManager.LoadSceneAsync("NewScene", LoadSceneMode.Single);
+        
+            int currentIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadSceneAsync(currentIndex + 1, LoadSceneMode.Single);
+        
     }
 
     public void QuitGame()
