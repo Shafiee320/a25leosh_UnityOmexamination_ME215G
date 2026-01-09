@@ -16,6 +16,7 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     // [SerializeField] private float gravityMultiplier = 1;    //unused
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioPlay jumpAudio; 
 
     public bool controlEnabled { get; set; } = true; // You can edit this variable from Unity Events
     
@@ -55,6 +56,8 @@ public class PlatformerMovement : MonoBehaviour
         {
             velocity.y = jumpForce;
             jumpInput = false;
+            if(jumpAudio)
+                jumpAudio.PlayAudio();
         }
         
         // Check if character lost contact with ground this frame
@@ -67,6 +70,7 @@ public class PlatformerMovement : MonoBehaviour
             else
             {
                 // Has jumped. Play jump sound and/or trigger jump animation etc
+                
             }
         }
         // Check if character gained contact with ground this frame
